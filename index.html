@@ -109,7 +109,9 @@
                 </div>
               </div>
             </div>
-            <div class="form-content">
+
+            <!-- step 2 -->
+            <div class="form-content" hidden>
               <div class="form-header">
                 <h1 class="form-title">Select your plan</h1>
                 <p class="form-subtitle">
@@ -166,11 +168,96 @@
                 </div>
               </div>
             </div>
-            <!-- step 2 -->
 
+            <!-- step 3 -->
+
+            <div class="form-content" hidden>
+              <div class="form-header">
+                <h1 class="form-title">Pick add-ons</h1>
+                <p class="form-subtitle">
+                  Add-ons help to enhance your gaming experience.
+                </p>
+              </div>
+
+              <div class="form-fields">
+                <label class="addon">
+                  <input type="checkbox" class="addon-checkbox" />
+                  <span class="addon-checkmark"></span>
+                  <div class="addon-info">
+                    <p class="addon-name">Online service</p>
+                    <p class="addon-desc">Access to multiplayer games</p>
+                  </div>
+                  <span class="addon-price">+$1/mo</span>
+                </label>
+
+                <label class="addon">
+                  <input type="checkbox" class="addon-checkbox" />
+                  <span class="addon-checkmark"></span>
+                  <div class="addon-info">
+                    <p class="addon-name">Larger storage</p>
+                    <p class="addon-desc">Extra 1TB cloud save</p>
+                  </div>
+                  <span class="addon-price">+$2/mo</span>
+                </label>
+
+                <label class="addon">
+                  <input type="checkbox" class="addon-checkbox" />
+                  <span class="addon-checkmark"></span>
+                  <div class="addon-info">
+                    <p class="addon-name">Customizable profile</p>
+                    <p class="addon-desc">Custom theme on your profile</p>
+                  </div>
+                  <span class="addon-price">+$2/mo</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- step 4 -->
+
+            <div class="form-content">
+              <div class="form-header">
+                <h1 class="form-title">Finishing up</h1>
+                <p class="form-subtitle">
+                  Double-check everything looks OK before confirming.
+                </p>
+              </div>
+
+              <div class="summary-card">
+                <!-- Selected Plan -->
+                <div class="summary-plan">
+                  <div class="summary-plan-info">
+                    <p class="summary-plan-name">Arcade (Yearly)</p>
+                    <a href="#" class="summary-change">Change</a>
+                  </div>
+                  <p class="summary-plan-price">$90/yr</p>
+                </div>
+
+                <hr class="summary-divider" />
+
+                <!-- Selected Add-ons -->
+                <div class="summary-addons">
+                  <div class="summary-addon">
+                    <p class="summary-addon-name">Online service</p>
+                    <p class="summary-addon-price">+$10/yr</p>
+                  </div>
+                  <div class="summary-addon">
+                    <p class="summary-addon-name">Larger storage</p>
+                    <p class="summary-addon-price">+$20/yr</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Total -->
+              <div class="summary-total">
+                <p class="summary-total-label">Total (per year)</p>
+                <p class="summary-total-price">+$120/yr</p>
+              </div>
+            </div>
+
+            <!-- navigation -->
             <div class="form-navigation">
               <button type="button" class="btn-back">Go Back</button>
-              <button type="button" class="btn-next">Next Step</button>
+              <button type="button" class="btn-confirm">Confirm</button>
             </div>
           </form>
         </div>

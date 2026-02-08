@@ -11,6 +11,7 @@
 
 .plan:hover {
   border: 1px solid var(--colors-purple-600, #483eff);
+  background: var(--colors-blue-50, #f8f9ff);
 }
 
 .plan-info {

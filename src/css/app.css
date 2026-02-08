@@ -4,6 +4,8 @@
 @import './components/sidebar.css';
 @import './components/form.css';
 @import './layout/step2.css';
+@import './layout/step3.css';
+@import './layout/step4.css';
 
 :root {
   /* Base colors */
