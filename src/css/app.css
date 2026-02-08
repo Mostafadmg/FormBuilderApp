@@ -6,6 +6,7 @@
 @import './layout/step2.css';
 @import './layout/step3.css';
 @import './layout/step4.css';
+@import './layout/summary.css';
 
 :root {
   /* Base colors */
