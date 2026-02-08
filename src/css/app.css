@@ -1,9 +1,105 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import './components/navigation.css';
+@import './components/buttons.css';
+@import './components/sidebar.css';
+@import './components/form.css';
+@import './layout/step2.css';
+
+:root {
+  /* Base colors */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Greys */
+  --color-grey-500: #9699aa;
+
+  /* Orange */
+  --color-orange-300: #ffaf7e;
+
+  /* Reds */
+  --color-red-500: #ee374a;
+  --color-red-450: #e96170;
+  --color-red-400: #f9818e;
+
+  /* Purples */
+  --color-purple-600: #483eff;
+  --color-purple-500: #6259ff;
+  --color-purple-400: #928cff;
+  --color-purple-200: #d6d9e6;
+
+  /* Blues */
+  --color-blue-950: #022959;
+  --color-blue-700: #164a8a;
+  --color-blue-300: #abbcff;
+  --color-blue-200: #bee2fd;
+  --color-blue-100: #eff5ff;
+  --color-blue-50: #f8f9ff;
+
+  /* Spacing */
+  --spacing-0: 0px;
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-700: 56px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  text-decoration: none;
+  list-style: none;
+}
 
 @layer base {
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+}
+
+/* Main App Container */
+.app {
+  min-height: 100vh;
+  background-color: var(--color-blue-100);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Ubuntu', sans-serif;
+
+  @media (min-width: 768px) {
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-200);
+  }
+}
+
+/* App Container - holds sidebar + content */
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    background-color: var(--color-white);
+    width: 100%;
+    max-width: 58.75rem;
+    min-height: auto;
+    height: 41rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
   }
 }

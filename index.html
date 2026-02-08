@@ -1,25 +1,183 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <title>Multi-Step Form</title>
-  
-  <!-- Link to Tailwind CSS -->
-  <link rel="stylesheet" href="/src/css/app.css">
-</head>
-<body>
-  
-  <!-- Test if Tailwind is working -->
-  <div class="bg-blue-500 text-white p-8 text-center text-2xl">
-    🎉 Tailwind is Working!
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>Multi-Step Form</title>
 
-  <!-- Your app will go here -->
-  <div id="app"></div>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Main JavaScript -->
-  <script type="module" src="/src/js/app.js"></script>
-</body>
+    <!-- Link to Tailwind CSS -->
+    <link rel="stylesheet" href="/src/css/app.css" />
+  </head>
+  <body>
+    <div id="app" class="app">
+      <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <div class="steps">
+            <div class="step-item">
+              <div class="step-number active">1</div>
+              <div class="step-info">
+                <span class="step-label">STEP 1</span>
+                <span class="step-title">YOUR INFO</span>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-info">
+                <span class="step-label">STEP 2</span>
+                <span class="step-title">SELECT PLAN</span>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-info">
+                <span class="step-label">STEP 3</span>
+                <span class="step-title">ADD-ONS</span>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-info">
+                <span class="step-label">STEP 4</span>
+                <span class="step-title">SUMMARY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-wrapper">
+          <form class="form-container">
+            <!-- step 1 -->
+            <div class="form-content" hidden>
+              <div class="form-header">
+                <h1 class="form-title">Personal info</h1>
+                <p class="form-subtitle">
+                  Please provide your name, email address, and phone number.
+                </p>
+              </div>
+
+              <div class="form-fields">
+                <div class="form-field">
+                  <label for="name" class="field-label">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    class="field-input"
+                    placeholder="e.g. Stephen King"
+                  />
+                  <span class="field-error"></span>
+                </div>
+
+                <div class="form-field">
+                  <label for="email" class="field-label">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="field-input"
+                    placeholder="e.g. stephenking@lorem.com"
+                  />
+                  <span class="field-error"></span>
+                </div>
+
+                <div class="form-field">
+                  <label for="phone" class="field-label">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    class="field-input"
+                    placeholder="e.g. +1 234 567 890"
+                  />
+                  <span class="field-error"></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-content">
+              <div class="form-header">
+                <h1 class="form-title">Select your plan</h1>
+                <p class="form-subtitle">
+                  You have the option of monthly or yearly billing.
+                </p>
+              </div>
+
+              <div class="form-fields">
+                <div class="form-field">
+                  <button class="plan">
+                    <div>
+                      <img src="./assets/images/icon-arcade.svg" alt="" />
+                    </div>
+                    <div class="plan-info">
+                      <p class="plan-name">Arcade</p>
+                      <p class="plan-price">$90/yr</p>
+                      <p class="plan-time">2 months free</p>
+                    </div>
+                  </button>
+                </div>
+
+                <div class="form-field">
+                  <button class="plan">
+                    <div>
+                      <img src="./assets/images/icon-advanced.svg" alt="" />
+                    </div>
+                    <div class="plan-info">
+                      <p class="plan-name">Advanced</p>
+                      <p class="plan-price">$120/yr</p>
+                      <p class="plan-time">2 months free</p>
+                    </div>
+                  </button>
+                </div>
+                <div class="form-field">
+                  <button class="plan">
+                    <div>
+                      <img src="./assets/images/icon-pro.svg" alt="" />
+                    </div>
+                    <div class="plan-info">
+                      <p class="plan-name">Pro</p>
+                      <p class="plan-price">$150/yr</p>
+                      <p class="plan-time">2 months free</p>
+                    </div>
+                  </button>
+                </div>
+
+                <div class="toggle-container">
+                  <div class="billing">Monthly</div>
+                  <label for="switch" class="switch">
+                    <input type="checkbox" name="switch" id="switch" />
+                    <span class="slider"></span>
+                  </label>
+                  <div class="billing">Yearly</div>
+                </div>
+              </div>
+            </div>
+            <!-- step 2 -->
+
+            <div class="form-navigation">
+              <button type="button" class="btn-back">Go Back</button>
+              <button type="button" class="btn-next">Next Step</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
 </html>

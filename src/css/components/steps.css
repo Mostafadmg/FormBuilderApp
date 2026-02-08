@@ -1,0 +1,33 @@
+.steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-200);
+  padding-top: var(--spacing-400);
+
+  @media (min-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--spacing-400);
+    gap: var(--spacing-300);
+  }
+}
+
+.step {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.0625rem;
+  height: 2.0625rem;
+  border: 2px solid var(--color-white);
+  border-radius: 50%;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.step:hover {
+  background-color: var(--color-white);
+  color: var(--color-blue-950);
+}

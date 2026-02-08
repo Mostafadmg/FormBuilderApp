@@ -1,0 +1,26 @@
+.app {
+  height: 100vh;
+  background-color: var(--color-blue-100);
+  display: flex;
+
+  @media (min-width: 768px) {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.app-container {
+  width: 100%;
+  position: relative;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--color-white);
+    width: 58.75rem;
+    height: 37.5rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
+  }
+}
