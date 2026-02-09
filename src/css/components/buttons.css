@@ -1,20 +1,19 @@
 .btn-next {
-  color: var(--color-white, #fff);
+  color: var(--color-white);
   font-family: 'Ubuntu', sans-serif;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   font-weight: 500;
   line-height: 1;
-  border-radius: 0.5rem;
-  background: var(--color-blue-950, #022959);
-  padding: 0.875rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-blue-950);
+  padding: 0.875rem var(--spacing-200);
   min-width: 6rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
   margin-left: auto;
 
   @media (min-width: 768px) {
-    padding: 1rem 1.5rem;
-    border-radius: 0.5rem;
+    padding: var(--spacing-200) var(--spacing-300);
   }
 }
 
@@ -22,10 +21,15 @@
   background-color: var(--color-blue-700);
 }
 
+.btn-next:focus-visible {
+  outline: 2px solid var(--color-purple-600);
+  outline-offset: 2px;
+}
+
 .btn-back {
-  color: var(--color-grey-500, #9699aa);
+  color: var(--color-grey-500);
   font-family: 'Ubuntu', sans-serif;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   font-weight: 500;
   line-height: 1;
   cursor: pointer;
@@ -34,10 +38,15 @@
   padding: 0.875rem 0;
 
   @media (min-width: 768px) {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 }
 
 .btn-back:hover {
   color: var(--color-blue-950);
+}
+
+.btn-back:focus-visible {
+  outline: 2px solid var(--color-purple-600);
+  outline-offset: 2px;
 }

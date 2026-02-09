@@ -1,17 +1,38 @@
+/* Hide radio inputs visually but keep accessible */
+.plan-radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
 .plan {
   display: flex;
   gap: var(--spacing-200);
-  border-radius: 0.5rem;
-  border: 1px solid var(--colors-purple-200, #d6d9e6);
-  background: var(--colors-white, #fff);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-purple-200);
+  background: var(--color-white);
   transition: all 0.2s;
-  padding: var(--spacing-200, 1rem);
+  padding: var(--spacing-200);
   cursor: pointer;
 }
 
 .plan:hover {
-  border: 1px solid var(--colors-purple-600, #483eff);
-  background: var(--colors-blue-50, #f8f9ff);
+  border: 1px solid var(--color-purple-600);
+  background: var(--color-blue-50);
+}
+
+/* Focus visible for keyboard navigation */
+.plan:has(.plan-radio:focus-visible) {
+  outline: 2px solid var(--color-purple-600);
+  outline-offset: 2px;
+}
+
+/* Selected state via radio :checked */
+.plan:has(.plan-radio:checked) {
+  border: 1px solid var(--color-purple-600);
+  background: var(--color-blue-50);
 }
 
 .plan-info {
@@ -21,46 +42,28 @@
   align-items: flex-start;
 }
 .plan-name {
-  color: var(--colors-blue-950, #022959);
-  font-feature-settings:
-    'liga' off,
-    'clig' off;
-
-  /* Text Preset 3 (Medium) - Ubuntu Medium - 16px - 120% Line Height - 0px Line Spacing */
-  font-family: Ubuntu;
-  font-size: 1rem;
-  font-style: normal;
+  color: var(--color-blue-950);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: var(--text-base);
   font-weight: 500;
-  line-height: 120%; /* 1.2rem */
+  line-height: 1.2;
   padding-bottom: 5px;
 }
 
 .plan-price {
-  color: var(--colors-grey-500, #9699aa);
-  font-feature-settings:
-    'liga' off,
-    'clig' off;
-
-  /* Text Preset 4 (Regular) - Ubuntu Regular - 14px - 120% Line Height - 0px Line Spacing */
-  font-family: Ubuntu;
-  font-size: 0.875rem;
-  font-style: normal;
+  color: var(--color-grey-500);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: var(--text-sm);
   font-weight: 400;
-  line-height: 120%; /* 1.05rem */
+  line-height: 1.2;
 }
 
 .plan-time {
-  color: var(--colors-blue-950, #022959);
-  font-feature-settings:
-    'liga' off,
-    'clig' off;
-
-  /* Text Preset 5 - Ubuntu Regular - 12px - 120% Line Height - 0px Line Spacing */
-  font-family: Ubuntu;
-  font-size: 0.75rem;
-  font-style: normal;
+  color: var(--color-blue-950);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: var(--text-xs);
   font-weight: 400;
-  line-height: 120%; /* 0.9rem */
+  line-height: 1.2;
 }
 
 /* toggle section */
@@ -69,9 +72,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   gap: var(--spacing-200);
-  background: var(--colors-blue-50, #f8f9ff);
+  background: var(--color-blue-50);
   padding: var(--spacing-200);
 
   @media (min-width: 768px) {
@@ -93,7 +96,7 @@
 }
 
 .slider {
-  background: var(--colors-blue-950, #022959);
+  background: var(--color-blue-950);
   border-radius: 0.625rem;
   width: 2.375rem;
   height: 1.25rem;
@@ -116,16 +119,15 @@
 }
 
 .billing {
-  color: var(--colors-blue-950, #022959);
-  text-align: right;
-  font-feature-settings:
-    'liga' off,
-    'clig' off;
-
-  /* Text Preset 4 (Medium) - Ubuntu Medium - 14px - 150% Line Height - 0px Line Spacing */
-  font-family: Ubuntu;
-  font-size: 0.875rem;
-  font-style: normal;
+  color: var(--color-blue-950);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: var(--text-sm);
   font-weight: 500;
-  line-height: 150%; /* 1.3125rem */
+  line-height: 1.5;
+}
+
+/* Focus styles for switch */
+.switch input:focus-visible + .slider {
+  outline: 2px solid var(--color-purple-600);
+  outline-offset: 2px;
 }

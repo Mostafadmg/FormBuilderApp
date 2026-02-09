@@ -3,14 +3,14 @@ export const appState = {
 
   formData: {
     personalInfo: {
-      name: "",
-      email: "",
-      phone: "",
+      name: '',
+      email: '',
+      phone: '',
     },
 
     planInfo: {
-      plan: "arcade",
-      billing: "monthly",
+      plan: 'arcade',
+      billing: 'monthly',
     },
 
     addOns: {

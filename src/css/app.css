@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './base/reset.css';
 @import './components/navigation.css';
 @import './components/buttons.css';
 @import './components/sidebar.css';
@@ -45,30 +46,29 @@
   --spacing-300: 24px;
   --spacing-400: 32px;
   --spacing-500: 40px;
+  --spacing-600: 48px;
   --spacing-700: 56px;
-}
+  --spacing-800: 64px;
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border: 0;
-  outline: 0;
-  font: inherit;
-  color: inherit;
-  background: none;
-  text-decoration: none;
-  list-style: none;
-}
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
 
-@layer base {
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  /* Typography */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+
+  /* Layout */
+  --sidebar-width: 17.125rem;
+  --container-max-width: 58.75rem;
+  --container-height: 41rem;
+  --step-number-size: 2.0625rem;
 }
 
 /* Main App Container */
@@ -98,11 +98,11 @@
     flex-direction: row;
     background-color: var(--color-white);
     width: 100%;
-    max-width: 58.75rem;
+    max-width: var(--container-max-width);
     min-height: auto;
-    height: 41rem;
-    border-radius: 1rem;
-    padding: 1rem;
+    height: var(--container-height);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-200);
     box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
   }
 }
