@@ -4,6 +4,7 @@ import {
   validatePhone,
   validateName,
 } from '../validation/validation';
+import { getState } from '../state/stateManager.js';
 
 export function syncFormDataToState() {
   const nameInput = document.getElementById('name');
@@ -59,9 +60,13 @@ export function validateStep1() {
 function showError(fieldName, errorMsg) {
   const errorSpan = document.querySelector(`[data-error="${fieldName}"]`);
   const input = document.getElementById(fieldName);
-  input.classList.add('error');
+
   errorSpan.textContent = errorMsg;
   errorSpan.classList.add('active');
+
+  input.classList.remove('error');
+  void input.offsetWidth;
+  input.classList.add('error');
 }
 
 function clearError(fieldName) {
@@ -71,4 +76,20 @@ function clearError(fieldName) {
   errorSpan.textContent = '';
   errorSpan.classList.remove('active');
   input.classList.remove('error');
+}
+
+export function syncStateToForm() {
+  const name = document.getElementById('name');
+  const email = document.getElementById('email');
+  const phone = document.getElementById('phone');
+
+  if (!name || !email || !phone) {
+    return; // Not on Step 1
+  }
+
+  const state = getState();
+
+  name.value = state.formData.personalInfo.name;
+  email.value = state.formData.personalInfo.email;
+  phone.value = state.formData.personalInfo.phone;
 }

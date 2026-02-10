@@ -1,3 +1,5 @@
+import { getAddonPrice } from '../utils/step3Sync.js';
+
 export function step3() {
   return /* html */ `
  <div class="form-content" data-step="3" >
@@ -14,9 +16,6 @@ export function step3() {
                     type="checkbox"
                     name="onlineService"
                     value="onlineService"
-                    data-addon-id="onlineService"
-                    data-price-monthly="1"
-                    data-price-yearly="10"
                     class="addon-checkbox"
                   />
                   <span class="addon-checkmark"></span>
@@ -24,7 +23,7 @@ export function step3() {
                     <p class="addon-name">Online service</p>
                     <p class="addon-desc">Access to multiplayer games</p>
                   </div>
-                  <span class="addon-price" data-addon-price>+$1/mo</span>
+                  <span class="addon-price">${getAddonPrice('onlineService')}</span>
                 </label>
 
                 <label class="addon" data-addon="largerStorage">
@@ -32,9 +31,6 @@ export function step3() {
                     type="checkbox"
                     name="largerStorage"
                     value="largerStorage"
-                    data-addon-id="largerStorage"
-                    data-price-monthly="2"
-                    data-price-yearly="20"
                     class="addon-checkbox"
                   />
                   <span class="addon-checkmark"></span>
@@ -42,17 +38,14 @@ export function step3() {
                     <p class="addon-name">Larger storage</p>
                     <p class="addon-desc">Extra 1TB cloud save</p>
                   </div>
-                  <span class="addon-price" data-addon-price>+$2/mo</span>
+                  <span class="addon-price">${getAddonPrice('largerStorage')}</span>
                 </label>
 
-                <label class="addon" data-addon="customProfile">
+                <label class="addon" data-addon="customizableProfile">
                   <input
                     type="checkbox"
-                    name="customProfile"
-                    value="customProfile"
-                    data-addon-id="customProfile"
-                    data-price-monthly="2"
-                    data-price-yearly="20"
+                    name="customizableProfile"
+                    value="customizableProfile"
                     class="addon-checkbox"
                   />
                   <span class="addon-checkmark"></span>
@@ -60,7 +53,7 @@ export function step3() {
                     <p class="addon-name">Customizable profile</p>
                     <p class="addon-desc">Custom theme on your profile</p>
                   </div>
-                  <span class="addon-price" data-addon-price>+$2/mo</span>
+                  <span class="addon-price">${getAddonPrice('customizableProfile')}</span>
                 </label>
               </div>
             </div>

@@ -1,3 +1,5 @@
+import { getPlanPrice, shouldShowBonus } from '../utils/step2Sync.js';
+
 export function step2() {
   return /* html */ `
  <!-- step 2 -->
@@ -17,8 +19,6 @@ export function step2() {
                       name="plan"
                       value="arcade"
                       data-plan-type="arcade"
-                      data-price-monthly="9"
-                      data-price-yearly="90"
                       class="plan-radio"
                       checked
                     />
@@ -30,8 +30,8 @@ export function step2() {
                     </div>
                     <div class="plan-info">
                       <p class="plan-name">Arcade</p>
-                      <p class="plan-price" data-plan-price>$9/mo</p>
-                      <p class="plan-time" data-plan-bonus hidden>
+                      <p class="plan-price">${getPlanPrice('arcade')}</p>
+                      <p class="plan-time" ${shouldShowBonus() ? '' : 'hidden'}>
                         2 months free
                       </p>
                     </div>
@@ -45,8 +45,6 @@ export function step2() {
                       name="plan"
                       value="advanced"
                       data-plan-type="advanced"
-                      data-price-monthly="12"
-                      data-price-yearly="120"
                       class="plan-radio"
                     />
                     <div>
@@ -57,8 +55,8 @@ export function step2() {
                     </div>
                     <div class="plan-info">
                       <p class="plan-name">Advanced</p>
-                      <p class="plan-price" data-plan-price>$12/mo</p>
-                      <p class="plan-time" data-plan-bonus hidden>
+                      <p class="plan-price">${getPlanPrice('advanced')}</p>
+                      <p class="plan-time" ${shouldShowBonus() ? '' : 'hidden'}>
                         2 months free
                       </p>
                     </div>
@@ -71,8 +69,6 @@ export function step2() {
                       name="plan"
                       value="pro"
                       data-plan-type="pro"
-                      data-price-monthly="15"
-                      data-price-yearly="150"
                       class="plan-radio"
                     />
                     <div>
@@ -83,8 +79,8 @@ export function step2() {
                     </div>
                     <div class="plan-info">
                       <p class="plan-name">Pro</p>
-                      <p class="plan-price" data-plan-price>$15/mo</p>
-                      <p class="plan-time" data-plan-bonus hidden>
+                      <p class="plan-price">${getPlanPrice('pro')}</p>
+                      <p class="plan-time" ${shouldShowBonus() ? '' : 'hidden'}>
                         2 months free
                       </p>
                     </div>

@@ -2,12 +2,29 @@ import { App } from './components/app';
 import { appState } from './state/appState';
 import { previousStep, nextStep } from './state/stateManager';
 import { validateStep1, syncFormDataToState } from './utils/formSync';
+import { attachStep2Listeners, syncStateToStep2 } from './utils/step2Sync';
+import { attachStep3Listeners, syncStateToStep3 } from './utils/step3Sync.js';
+import { syncStateToForm } from './utils/formSync';
+
+/*  */
 function render() {
   const app = document.getElementById('app');
   app.innerHTML = App();
   attachEventListeners();
   updateSidebarIndicators();
   updateNavigationButtons();
+
+  if (appState.currentStep === 1) {
+    syncStateToForm();
+  }
+
+  if (appState.currentStep === 2) {
+    syncStateToStep2();
+  }
+
+  if (appState.currentStep === 3) {
+    syncStateToStep3();
+  }
 }
 
 function handleNextStep() {
@@ -36,11 +53,24 @@ function attachEventListeners() {
   const backBtn = document.getElementById('btn-back');
   nextBtn.addEventListener('click', handleNextStep);
   backBtn.addEventListener('click', handlePreviousStep);
+
+  if (appState.currentStep === 2) {
+    attachStep2Listeners();
+  }
+
+  if (appState.currentStep === 3) {
+    attachStep3Listeners(); // ← Add this!
+  }
 }
 
 // Somewhere else, attach it:
 
 document.addEventListener('DOMContentLoaded', () => {
+  render();
+});
+
+// Listen for billing toggle changes to re-render
+window.addEventListener('billingChanged', () => {
   render();
 });
 

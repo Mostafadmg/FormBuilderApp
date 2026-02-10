@@ -1,5 +1,5 @@
 export const appState = {
-  currentStep: 1,
+  currentStep: 3,
 
   formData: {
     personalInfo: {
