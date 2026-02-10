@@ -16,9 +16,24 @@ export function loadFormData() {
     // Step 3: Parse it
     const loadedState = JSON.parse(savedData);
 
-    // Step 4: Update the real appState
-    appState.currentStep = loadedState.currentStep;
-    appState.formData = loadedState.formData;
+    // Step 4: Update the real appState (merge with defaults)
+    appState.currentStep = loadedState.currentStep ?? appState.currentStep;
+    appState.formData = {
+      ...appState.formData,
+      ...loadedState.formData,
+      personalInfo: {
+        ...appState.formData.personalInfo,
+        ...loadedState.formData?.personalInfo,
+      },
+      planInfo: {
+        ...appState.formData.planInfo,
+        ...loadedState.formData?.planInfo,
+      },
+      addOns: {
+        ...appState.formData.addOns,
+        ...loadedState.formData?.addOns,
+      },
+    };
   }
 }
 

@@ -26,9 +26,15 @@ export function syncStateToStep3() {
 }
 
 export function getAddonPrice(addonName) {
-  const billing = getState().formData.planInfo.billing;
-  const price = CONFIG.addOns[addonName][billing];
+  const billing = getState().formData?.planInfo?.billing ?? 'monthly';
+  const addOnConfig = CONFIG.addOns?.[addonName];
+
+  if (!addOnConfig) {
+    return '';
+  }
+
+  const price = addOnConfig[billing] ?? addOnConfig.monthly ?? 0;
   const suffix = billing === 'monthly' ? '/mo' : '/yr';
-  
+
   return `+$${price}${suffix}`;
 }
