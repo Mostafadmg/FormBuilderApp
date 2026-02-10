@@ -24,7 +24,7 @@ export function step2() {
                     />
                     <div>
                       <img
-                        src="./assets/images/icon-arcade.svg"
+                        src="/assets/images/icon-arcade.svg"
                         alt="Arcade plan icon"
                       />
                     </div>
@@ -49,7 +49,7 @@ export function step2() {
                     />
                     <div>
                       <img
-                        src="./assets/images/icon-advanced.svg"
+                        src="/assets/images/icon-advanced.svg"
                         alt="Advanced plan icon"
                       />
                     </div>
@@ -73,7 +73,7 @@ export function step2() {
                     />
                     <div>
                       <img
-                        src="./assets/images/icon-pro.svg"
+                        src="/assets/images/icon-pro.svg"
                         alt="Pro plan icon"
                       />
                     </div>

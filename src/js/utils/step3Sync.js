@@ -1,5 +1,6 @@
 import { getState, toggleAddOn } from '../state/stateManager.js';
 import { CONFIG } from '../config/constants.js';
+import { saveFormData } from '../storage/localStorage.js';
 
 export function attachStep3Listeners() {
   const addOnCheckboxes = document.querySelectorAll('.addon-checkbox');
@@ -7,6 +8,7 @@ export function attachStep3Listeners() {
   addOnCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', (e) => {
       toggleAddOn(e.target.value);
+      saveFormData();
     });
   });
 }

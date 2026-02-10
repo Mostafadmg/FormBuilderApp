@@ -1,5 +1,6 @@
 import { updatePlan, updateBilling, getState } from '../state/stateManager.js';
 import { CONFIG } from '../config/constants.js';
+import { saveFormData } from '../storage/localStorage.js';
 
 export function syncPlanToState(plan) {
   updatePlan(plan);
@@ -49,11 +50,13 @@ export function attachStep2Listeners() {
     input.addEventListener('change', function () {
       const value = this.value;
       syncPlanToState(value);
+      saveFormData();
     });
   });
 
   billingToggle.addEventListener('change', () => {
     syncBillingToState();
+    saveFormData();
     
     // Import render from main.js to re-render
     // We'll need to pass render as a callback or trigger it differently

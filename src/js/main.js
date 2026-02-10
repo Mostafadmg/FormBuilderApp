@@ -1,10 +1,11 @@
 import { App } from './components/app';
 import { appState } from './state/appState';
-import { previousStep, nextStep } from './state/stateManager';
+import { previousStep, nextStep, goToStep } from './state/stateManager';
 import { validateStep1, syncFormDataToState } from './utils/formSync';
 import { attachStep2Listeners, syncStateToStep2 } from './utils/step2Sync';
 import { attachStep3Listeners, syncStateToStep3 } from './utils/step3Sync.js';
 import { syncStateToForm } from './utils/formSync';
+import { saveFormData, loadFormData } from './storage/localStorage.js';
 
 /*  */
 function render() {
@@ -40,11 +41,13 @@ function handleNextStep() {
     syncFormDataToState(); // Save data if valid
   }
   nextStep();
+  saveFormData();
   render();
 }
 
 function handlePreviousStep() {
   previousStep();
+  saveFormData();
   render();
 }
 
@@ -59,13 +62,31 @@ function attachEventListeners() {
   }
 
   if (appState.currentStep === 3) {
-    attachStep3Listeners(); // ← Add this!
+    attachStep3Listeners();
   }
+
+  // Sidebar navigation
+  const stepItems = document.querySelectorAll('.step-item');
+  stepItems.forEach((stepItem) => {
+    stepItem.addEventListener('click', () => {
+      const stepNumber = stepItem.querySelector('.step-number');
+      const targetStep = parseInt(stepNumber.dataset.stepIndicator);
+
+      if (appState.currentStep === 1) {
+        syncFormDataToState();
+      }
+
+      goToStep(targetStep);
+      saveFormData();
+      render();
+    });
+  });
 }
 
 // Somewhere else, attach it:
 
 document.addEventListener('DOMContentLoaded', () => {
+  loadFormData();
   render();
 });
 
