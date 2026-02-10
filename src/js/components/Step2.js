@@ -1,4 +1,7 @@
 import { getPlanPrice, shouldShowBonus } from '../utils/step2Sync.js';
+import arcadeIcon from '/assets/images/icon-arcade.svg';
+import advancedIcon from '/assets/images/icon-advanced.svg';
+import proIcon from '/assets/images/icon-pro.svg';
 
 export function step2() {
   return /* html */ `
@@ -24,7 +27,7 @@ export function step2() {
                     />
                     <div>
                       <img
-                        src="/assets/images/icon-arcade.svg"
+                        src="${arcadeIcon}"
                         alt="Arcade plan icon"
                       />
                     </div>
@@ -49,7 +52,7 @@ export function step2() {
                     />
                     <div>
                       <img
-                        src="/assets/images/icon-advanced.svg"
+                        src="${advancedIcon}"
                         alt="Advanced plan icon"
                       />
                     </div>
@@ -73,7 +76,7 @@ export function step2() {
                     />
                     <div>
                       <img
-                        src="/assets/images/icon-pro.svg"
+                        src="${proIcon}"
                         alt="Pro plan icon"
                       />
                     </div>
