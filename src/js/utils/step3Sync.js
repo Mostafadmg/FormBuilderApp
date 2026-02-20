@@ -18,7 +18,7 @@ export function syncStateToStep3() {
 
   Object.keys(addOns).forEach((addonName) => {
     const checkbox = document.querySelector(`[value="${addonName}"]`);
-    
+
     if (checkbox) {
       checkbox.checked = addOns[addonName];
     }

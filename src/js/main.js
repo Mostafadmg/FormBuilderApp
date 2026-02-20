@@ -5,7 +5,7 @@ import { validateStep1, syncFormDataToState } from './utils/formSync';
 import { attachStep2Listeners, syncStateToStep2 } from './utils/step2Sync';
 import { attachStep3Listeners, syncStateToStep3 } from './utils/step3Sync.js';
 import { syncStateToForm } from './utils/formSync';
-import { saveFormData, loadFormData } from './storage/localStorage.js';
+import { saveFormData, loadFormData, clearFormData } from './storage/localStorage.js';
 
 /*  */
 function render() {
@@ -29,8 +29,6 @@ function render() {
 }
 
 function handleNextStep() {
-  // This IS the handler
-
   if (appState.currentStep === 1) {
     const isValid = validateStep1();
 
@@ -40,8 +38,17 @@ function handleNextStep() {
 
     syncFormDataToState(); // Save data if valid
   }
+
+  const isSubmittingFinalStep = appState.currentStep === 4;
   nextStep();
-  saveFormData();
+
+  if (isSubmittingFinalStep) {
+    clearFormData();
+    appState.currentStep = 5;
+  } else {
+    saveFormData();
+  }
+
   render();
 }
 
@@ -65,6 +72,8 @@ function attachEventListeners() {
     attachStep3Listeners();
   }
 
+  attachEnterToNextListeners();
+
   // Sidebar navigation
   const stepItems = document.querySelectorAll('.step-item');
   stepItems.forEach((stepItem) => {
@@ -79,6 +88,27 @@ function attachEventListeners() {
       goToStep(targetStep);
       saveFormData();
       render();
+    });
+  });
+}
+
+function attachEnterToNextListeners() {
+  const currentStep = document.querySelector(
+    `.form-content[data-step="${appState.currentStep}"]`,
+  );
+
+  if (!currentStep) return;
+
+  const enterTargets = currentStep.querySelectorAll(
+    'input[type="text"], input[type="email"], input[type="tel"]',
+  );
+
+  enterTargets.forEach((input) => {
+    input.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter') return;
+      if (event.repeat) return;
+      event.preventDefault();
+      handleNextStep();
     });
   });
 }

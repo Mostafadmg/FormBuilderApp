@@ -1,15 +1,15 @@
-import { getState } from "../state/stateManager.js";
-import { appState } from "../state/appState.js";
-import { resetForm } from "../state/stateManager.js";
+import { getState } from '../state/stateManager.js';
+import { appState } from '../state/appState.js';
+import { resetForm } from '../state/stateManager.js';
 
 export function saveFormData() {
   const state = getState();
-  localStorage.setItem("appState", JSON.stringify(state));
+  localStorage.setItem('appState', JSON.stringify(state));
 }
 
 export function loadFormData() {
   // Step 1: Get the saved string
-  const savedData = localStorage.getItem("appState");
+  const savedData = localStorage.getItem('appState');
 
   // Step 2: Check if it exists
   if (savedData) {
@@ -38,6 +38,6 @@ export function loadFormData() {
 }
 
 export function clearFormData() {
-  localStorage.removeItem("appState");
+  localStorage.removeItem('appState');
   resetForm();
 }
